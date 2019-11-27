@@ -6,8 +6,8 @@ public class Origem {
 	
 	public static void main(String[] args) {
 		
-		Tabuleiro tab = new Tabuleiro();
-		tab.inicializa(1);
+		Tabuleiro tab = new Tabuleiro(3, '#');
+		tab.inicializaTabuleiro();
 		tab.imprimir();
 
 	}

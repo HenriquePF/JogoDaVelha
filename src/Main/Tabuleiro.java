@@ -1,20 +1,27 @@
 package Main;
 
 public class Tabuleiro {
-
-	//REFAZER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	
-	int[][] tab = new int[3][3];
+	private char pecaDefault = 0;
+	private char[][] tabuleiro = new char[3][3];
+	private int qtdPecas = 0;
 
-	public void inicializa(int valor) {
-		for (int l = 0; l < 3; l++) {
-			for (int c = 0; c < 3; c++) {
-				tab[l][c] = valor;
+	public Tabuleiro(int dimencaoDoTabuleiro, char pecaDefault) {
+		for (int i = 0; i < dimencaoDoTabuleiro; i++) {
+			for (int j = 0; j < dimencaoDoTabuleiro; j++) {
+				tabuleiro[i][j] = pecaDefault;
 			}
 		}
 	}
-
-	//TEMPORARIO
+	
+	public void inicializaTabuleiro() {
+		for (int l = 0; l < 3; l++) {
+			for (int c = 0; c < 3; c++) {
+				tabuleiro[l][c] = ' ';
+			}
+		}
+	}
+	
 	public void imprimir() {
 
 		int qtd = 3;
@@ -28,7 +35,7 @@ public class Tabuleiro {
 				} else {
 					if (qtd2 < 10) {
 
-						System.out.print("|  " + tab[coluna][linha] + " ");
+						System.out.print("|  " + tabuleiro[coluna][linha] + " ");
 					}
 
 					qtd2 += 1;
@@ -39,13 +46,29 @@ public class Tabuleiro {
 		}
 
 	}
-
-	public void altera(int valor, int l, int c) {
-		tab[l][c] = valor;
+	
+	public boolean adicionarPeca(char peca, int i, int j) {
+		return false;
+		
 	}
-
-	public int consulta(int l, int c) {
-		return tab[l][c];
+	
+	public void removerPeca(int i, int j) {
+		
 	}
-
+	
+	public String toString() {
+		return null;
+		
+	}
+	
+	public char getPecas(int i, int j) {
+		return pecaDefault;
+		
+	}
+	
+	public int getQtdPecas() {
+		return pecaDefault;
+		
+	}
+	
 }
