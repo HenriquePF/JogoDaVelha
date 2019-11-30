@@ -6,8 +6,8 @@ public class Origem {
 	
 	public static void main(String[] args) {
 		
-		Tabuleiro tab = new Tabuleiro(3, '#');
-//		tab.inicializaTabuleiro();
+		Tabuleiro tab = new Tabuleiro(3, '#'); // Objeto criado, instanciado...
+		tab.inicializaTabuleiro(); //... e método chamado. 
 
 
 	}
