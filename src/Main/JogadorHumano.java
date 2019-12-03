@@ -1,12 +1,12 @@
 package Main;
 
-public class JogadorHumano {
+public class JogadorHumano extends Jogador{
 	
 	public JogadorHumano(char id) {
-	
+		super(id); 
 	}
 	
-	int[] jogar() {
+	public int[] jogar() {
 		return null;
 	}
 

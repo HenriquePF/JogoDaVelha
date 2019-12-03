@@ -16,8 +16,7 @@ public class Tabuleiro {
 			for (int coluna = 0; coluna < dimencaoDoTabuleiro; coluna++) {
 				System.out.print("| ");
 				System.out.print(" " + pecaDefault + " ");
-				System.out.print(" ");
-				tabuleiro[linha][coluna] = pecaDefault;
+				System.out.print(" ");;
 			}
 			System.out.println("|");
 		}
@@ -55,23 +54,30 @@ public class Tabuleiro {
 		System.out.println("       Jogador Humano: X.");
 		System.out.println("      Jogador Virtual: O.\n");
 
-		for (int linha = 0; linha < tabuleiro.length; linha++) {
+		for (int i = 0; i < 3; i++) {
 			System.out.println("+-----+-----+-----+");
-			for (int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-				System.out.print("| ");
-				System.out.print("   ");
-				System.out.print(" ");
-				tabuleiro[linha][coluna] = ' ';
+			for (int j = 0; j < 3; j++) {
+				System.out.print("|");
+				System.out.print("  ");
+				System.out.print("" + tabuleiro[i][j] + "  ");
 			}
 			System.out.println("|");
 		}
 		System.out.println("+-----+-----+-----+");
-
 	}
 
 	public boolean adicionarPeca(char peca, int i, int j) {
-
-		return false;
+		if ((i < 0) || (i > 2)) {
+			return false;
+		}
+		if ((j < 0) || (j > 2)) {
+			return false;
+		}
+		if (tabuleiro[i][j] != 0) {
+			return false;
+		}
+		tabuleiro[i][j] = peca;
+		return true;
 
 	}
 

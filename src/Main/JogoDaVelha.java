@@ -11,7 +11,6 @@ public class JogoDaVelha extends JogoDeTabuleiro{
 
 	public boolean venceu(char idJogador) {
 		return false;
-		
 	}
 	
 	public void jogar() {

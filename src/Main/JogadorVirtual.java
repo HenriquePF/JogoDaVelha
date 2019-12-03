@@ -1,9 +1,9 @@
 package Main;
 
-public class JogadorVirtual {
+public class JogadorVirtual extends Jogador{
 
 	public JogadorVirtual(char id) {
-	
+		super(id);
 	}
 	
 	int inteligencia() {
@@ -11,7 +11,7 @@ public class JogadorVirtual {
 		
 	}
 	
-	int[] jogar() {
+	public int[] jogar() {
 		return null;
 	}
 	
