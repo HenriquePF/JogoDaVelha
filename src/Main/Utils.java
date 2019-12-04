@@ -2,9 +2,8 @@ package Main;
 
 public class Utils {
 	
-	int sortear(int inicio, int fim) {
-		return 0;
-		
-	}
+	public static int sortear(int inicio, int fim) {
+        return (int) ((Math.random() * fim) - inicio);
+    }
 
 }

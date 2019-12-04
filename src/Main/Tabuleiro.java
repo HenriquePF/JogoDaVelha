@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Tabuleiro {
 	Scanner sc = new Scanner(System.in);
 
-	private char pecaDefault = '#';
-	private char[][] tabuleiro = new char[3][3];
-	private int qtdPecas = 0;
+	private char pecaDefault = '#'; // OK
+	private char[][] tabuleiro = new char[3][3];// OK
+	private int qtdPecas = 0;// OK
 
-	public Tabuleiro(int dimencaoDoTabuleiro, char pecaDefault) {
+	public Tabuleiro(int dimencaoDoTabuleiro, char pecaDefault) { // OK
 
 		for (int linha = 0; linha < dimencaoDoTabuleiro; linha++) {
 			System.out.println("+-----+-----+-----+");
@@ -47,8 +47,7 @@ public class Tabuleiro {
 		} while (op != 'i');
 	}
 
-	// INICIALIZA = IMPRIME -> FAZER LINHAS DE CIMA E DE BAIXO!
-	public void inicializaTabuleiro() {
+	public void inicializaTabuleiro() { // OK
 
 		System.out.println("         JOGO DA VELHA:");
 		System.out.println("       Jogador Humano: X.");
@@ -66,7 +65,7 @@ public class Tabuleiro {
 		System.out.println("+-----+-----+-----+");
 	}
 
-	public boolean adicionarPeca(char peca, int i, int j) {
+	public boolean adicionarPeca(char peca, int i, int j) { // OK
 		if ((i < 0) || (i > 2)) {
 			return false;
 		}
@@ -82,7 +81,7 @@ public class Tabuleiro {
 	}
 
 	public void removerPeca(int i, int j) {
-
+		
 	}
 
 	public String toString() {

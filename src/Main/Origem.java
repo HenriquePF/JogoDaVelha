@@ -7,10 +7,12 @@ public class Origem {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
+		JogoDaVelha jogo = new JogoDaVelha(3, '#');
 		Tabuleiro tab = new Tabuleiro(3, '#');
 		tab.inicializaTabuleiro();
-		JogadorHumano humanPlayer = new JogadorHumano('X');
-		JogadorVirtual virtualPlayer = new JogadorVirtual('O');
+		
+		Jogador humano = new JogadorHumano('X');
+		Jogador virtual = new JogadorHumano('O');
 		
 		do {
 			System.out.println("Jogador : ");
@@ -24,6 +26,7 @@ public class Origem {
 			tab.adicionarPeca(peca, i - 1, j - 1);
 			tab.inicializaTabuleiro();
 			
+			jogo.venceu('X');
 		} while (true);
 
 		
