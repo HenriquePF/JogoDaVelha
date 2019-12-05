@@ -9,9 +9,10 @@ public class JogadorHumano extends Jogador{
 		super(id); 
 	}
 	
+	@Override
 	public int[] jogar() {
 		
-		System.out.println("Insira linha:");
+		System.out.println("Insira linha e a coluna:");
 		int[] position = new int[2];
 		position[0] = sc.nextInt();
 		position[1] = sc.nextInt();

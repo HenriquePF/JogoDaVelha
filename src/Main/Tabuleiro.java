@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Tabuleiro {
 	Scanner sc = new Scanner(System.in);
 
-	private char pecaDefault = '#'; // OK
-	private char[][] tabuleiro = new char[3][3];// OK
-	private int qtdPecas = 0;// OK
+	private char pecaDefault = '#';
+	private char[][] tabuleiro = new char[3][3];
+	private int qtdPecas = 0;
 
-	public Tabuleiro(int dimencaoDoTabuleiro, char pecaDefault) { // OK
-
+	public Tabuleiro(int dimencaoDoTabuleiro, char pecaDefault) {
+		this.pecaDefault = pecaDefault;
 		for (int linha = 0; linha < dimencaoDoTabuleiro; linha++) {
 			System.out.println("+-----+-----+-----+");
 			for (int coluna = 0; coluna < dimencaoDoTabuleiro; coluna++) {
@@ -21,7 +21,7 @@ public class Tabuleiro {
 			System.out.println("|");
 		}
 		System.out.println("+-----+-----+-----+");
-
+		this.qtdPecas = 0;
 		char op;
 
 		do {
@@ -49,23 +49,15 @@ public class Tabuleiro {
 
 	public void inicializaTabuleiro() { // OK
 
-		System.out.println("         JOGO DA VELHA:");
-		System.out.println("       Jogador Humano: X.");
-		System.out.println("      Jogador Virtual: O.\n");
-
-		for (int i = 0; i < 3; i++) {
-			System.out.println("+-----+-----+-----+");
-			for (int j = 0; j < 3; j++) {
-				System.out.print("|");
-				System.out.print("  ");
-				System.out.print("" + tabuleiro[i][j] + "  ");
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro.length; j++) {
+				tabuleiro[i][j] = ' ';
 			}
-			System.out.println("|");
 		}
-		System.out.println("+-----+-----+-----+");
+		
 	}
 
-	public boolean adicionarPeca(char peca, int i, int j) { // OK
+	public boolean adicionarPeca(char peca, int i, int j) {
 		if ((i < 0) || (i > 2)) {
 			return false;
 		}
@@ -77,30 +69,30 @@ public class Tabuleiro {
 		}
 		tabuleiro[i][j] = peca;
 		return true;
-
 	}
 
 	public void removerPeca(int i, int j) {
 		
 	}
 
+	@Override
 	public String toString() {
 
-		for (int i = 0; i < 3; i++) {
+		for (int linha = 0; linha < tabuleiro.length; linha++) {
 			System.out.println("+-----+-----+-----+");
-			for (int j = 0; j < 3; j++) {
-				System.out.print("|");
-				System.out.print("  ");
-				if (this.tabuleiro[i][j] == ' ') {
-					System.out.println(" ");
-				} else {
-					System.out.println(this.tabuleiro[i][j]  + " ");
+			for (int coluna = 0; coluna < tabuleiro.length; coluna++) {
+				System.out.print("| ");
+				if(tabuleiro[linha][coluna] == ' ') {
+					System.out.print("   ");
+				}else {
+					System.out.print(tabuleiro[linha][coluna] + "  ");
 				}
+				System.out.print(" ");;
 			}
 			System.out.println("|");
 		}
 		System.out.println("+-----+-----+-----+");
-		return null;
+		return "X";
 
 	}
 
@@ -110,7 +102,7 @@ public class Tabuleiro {
 	}
 
 	public int getQtdPecas() {
-		return pecaDefault;
+		return qtdPecas;
 
 	}
 

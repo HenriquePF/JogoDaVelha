@@ -2,14 +2,14 @@ package Main;
 
 public class JogoDaVelha extends JogoDeTabuleiro{
 	
-	
+	protected int tamaho;
 	
 	public JogoDaVelha(int tamanho, char caractereDefault) {
 		super(tamanho, caractereDefault);
+		this.tamaho = tamanho;
 	}
 
 	public boolean venceu(char idJogador) {
-		char peca = tabuleiro.getPecas(0, 0);
 		for (int i = 0; i < 3; i++) {							// linha
 			if ((tabuleiro.getPecas(i, 0) == idJogador) && (tabuleiro.getPecas(i, 1) == idJogador)
 					&& (tabuleiro.getPecas(i, 2) == idJogador)) {
@@ -42,16 +42,19 @@ public class JogoDaVelha extends JogoDeTabuleiro{
 		tabuleiro.inicializaTabuleiro();
 		
 		while (true) {
+			boolean jogoCheck = true;
 			tabuleiro.toString();
 			jogar(jogador1);
 			if (venceu(jogador1.getId())) {
 				tabuleiro.toString();
 				System.out.println("Jogador Humano venceu!");
+				jogoCheck = false;
 			}
 			
 			if (tabuleiro.getQtdPecas() == 9) {
 				tabuleiro.toString();
 				System.out.println("Velha");
+				jogoCheck = false;
 				break;
 			}
 			
@@ -59,11 +62,13 @@ public class JogoDaVelha extends JogoDeTabuleiro{
 			if (venceu(jogador2.getId())) {
 				tabuleiro.toString();
 				System.out.println("Jogador Virtual venceu!");
+				jogoCheck = false;
 			}
 			
 			if (tabuleiro.getQtdPecas() == 9) {
 				tabuleiro.toString();
 				System.out.println("Velha");
+				jogoCheck = false;
 				break;
 			}
 		}
@@ -71,8 +76,11 @@ public class JogoDaVelha extends JogoDeTabuleiro{
 	}
 	
 	private void jogar(Jogador jogador) {
-		
-	}
+		int [] position = new int[1];
+		do {
+			position = jogador.jogar();
+		} while(tabuleiro.adicionarPeca(jogador.getId(), position[0], position[1]));
+ 	}
 	
 	
  }
