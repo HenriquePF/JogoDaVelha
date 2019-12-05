@@ -85,12 +85,27 @@ public class Tabuleiro {
 	}
 
 	public String toString() {
+
+		for (int i = 0; i < 3; i++) {
+			System.out.println("+-----+-----+-----+");
+			for (int j = 0; j < 3; j++) {
+				System.out.print("|");
+				System.out.print("  ");
+				if (this.tabuleiro[i][j] == ' ') {
+					System.out.println(" ");
+				} else {
+					System.out.println(this.tabuleiro[i][j]  + " ");
+				}
+			}
+			System.out.println("|");
+		}
+		System.out.println("+-----+-----+-----+");
 		return null;
 
 	}
 
 	public char getPecas(int i, int j) {
-		return pecaDefault;
+		return tabuleiro[i][j];
 
 	}
 

@@ -11,8 +11,12 @@ public class JogadorVirtual extends Jogador{
 		
 	}
 	
+	@Override
 	public int[] jogar() {
-		return null;
+		int[] position = new int[2];
+		position[0] = Utils.sortear(0, 3);
+		position[1] = Utils.sortear(0, 3);
+ 		return position;
 	}
 	
 }

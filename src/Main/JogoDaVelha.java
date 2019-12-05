@@ -39,7 +39,34 @@ public class JogoDaVelha extends JogoDeTabuleiro{
 	}
 	
 	public void jogar() {
+		tabuleiro.inicializaTabuleiro();
 		
+		while (true) {
+			tabuleiro.toString();
+			jogar(jogador1);
+			if (venceu(jogador1.getId())) {
+				tabuleiro.toString();
+				System.out.println("Jogador Humano venceu!");
+			}
+			
+			if (tabuleiro.getQtdPecas() == 9) {
+				tabuleiro.toString();
+				System.out.println("Velha");
+				break;
+			}
+			
+			jogar(jogador2);
+			if (venceu(jogador2.getId())) {
+				tabuleiro.toString();
+				System.out.println("Jogador Virtual venceu!");
+			}
+			
+			if (tabuleiro.getQtdPecas() == 9) {
+				tabuleiro.toString();
+				System.out.println("Velha");
+				break;
+			}
+		}
 		
 	}
 	
