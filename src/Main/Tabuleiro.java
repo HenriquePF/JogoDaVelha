@@ -64,11 +64,12 @@ public class Tabuleiro {
 		if ((j < 0) || (j > 2)) {
 			return false;
 		}
-		if (tabuleiro[i][j] != 0) {
-			return false;
+		if (tabuleiro[i][j] == ' ') {
+			tabuleiro[i][j] = peca;
+			return true;
+
 		}
-		tabuleiro[i][j] = peca;
-		return true;
+		return false;
 	}
 
 	public void removerPeca(int i, int j) {

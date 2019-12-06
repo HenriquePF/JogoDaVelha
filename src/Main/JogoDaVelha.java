@@ -42,19 +42,17 @@ public class JogoDaVelha extends JogoDeTabuleiro{
 		tabuleiro.inicializaTabuleiro();
 		
 		while (true) {
-			boolean jogoCheck = true;
 			tabuleiro.toString();
 			jogar(jogador1);
 			if (venceu(jogador1.getId())) {
 				tabuleiro.toString();
 				System.out.println("Jogador Humano venceu!");
-				jogoCheck = false;
+				break;
 			}
 			
 			if (tabuleiro.getQtdPecas() == 9) {
 				tabuleiro.toString();
 				System.out.println("Velha");
-				jogoCheck = false;
 				break;
 			}
 			
@@ -62,13 +60,12 @@ public class JogoDaVelha extends JogoDeTabuleiro{
 			if (venceu(jogador2.getId())) {
 				tabuleiro.toString();
 				System.out.println("Jogador Virtual venceu!");
-				jogoCheck = false;
+				break;
 			}
 			
 			if (tabuleiro.getQtdPecas() == 9) {
 				tabuleiro.toString();
 				System.out.println("Velha");
-				jogoCheck = false;
 				break;
 			}
 		}
